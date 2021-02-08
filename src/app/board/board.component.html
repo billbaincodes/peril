@@ -1,0 +1,9 @@
+<div class='board'>
+  <div class='category' *ngFor='let category of set'>
+    <div class='cat-name'>{{category.name}}</div>
+    <tile 
+      *ngFor='let tile of category.questions'
+      [data]='tile'
+    ></tile>
+  </div>
+</div>

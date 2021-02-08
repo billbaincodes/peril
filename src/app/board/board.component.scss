@@ -1,0 +1,14 @@
+.board {
+  border: .2rem solid black;
+  background-color: darkblue;
+  width: 1000px;
+  height: 500px;
+  display: flex;
+  // justify-content: space-evenly;
+}
+
+.cat-name {
+  border: .1rem solid black;
+  width: 80px;
+  height: 80px;
+}
