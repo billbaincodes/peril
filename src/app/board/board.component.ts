@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as data from '../../assets/dummy.json';
 
 @Component({
   selector: 'Board',
@@ -9,9 +10,12 @@ export class BoardComponent implements OnInit {
 
   constructor() { }
 
-  set = [];
+  set:any = (data as any).default;
+
 
   ngOnInit() {
+    console.log({ data });
+    console.log(data[0])
   }
 
 }

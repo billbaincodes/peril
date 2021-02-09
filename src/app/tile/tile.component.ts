@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'tile',
@@ -12,6 +13,10 @@ export class TileComponent implements OnInit {
   beingAsked = false;
 
   answer = false;
+
+  correct = false;
+
+  conjecture = 'hehe'
 
   constructor() { }
 
@@ -28,13 +33,16 @@ export class TileComponent implements OnInit {
 
   guess(e){
     e.stopPropagation(); // stop ask from firing
+    console.log(this.conjecture, this.data.answer);
+    if (this.conjecture == this.data.answer){
+      this.correct = true;
+    }
     this.answer = true;
   }
 
   close(e) {
-    e.stopPropagation(); // stop ask from firing
+    e.stopPropagation();
     this.data.active = false;
     this.beingAsked = false;
   }
-
 }
