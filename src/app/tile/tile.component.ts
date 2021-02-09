@@ -11,6 +11,8 @@ export class TileComponent implements OnInit {
   
   beingAsked = false;
 
+  answer = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -25,10 +27,14 @@ export class TileComponent implements OnInit {
   }
 
   guess(e){
-    e.stopPropagation();
-    console.log('wrong fool!!')
+    e.stopPropagation(); // stop ask from firing
+    this.answer = true;
+  }
+
+  close(e) {
+    e.stopPropagation(); // stop ask from firing
+    this.data.active = false;
     this.beingAsked = false;
-    console.log('bAsked', this.beingAsked)
   }
 
 }

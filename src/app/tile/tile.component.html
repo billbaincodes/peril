@@ -1,12 +1,19 @@
+<div
+  *ngIf='data.active'
+  [ngClass]="{'tile': true, 'beingAsked': this.beingAsked, 'hidden': !this.beingAsked }">
+  <div class='question'>
+    <p>{{data.query | uppercase}}</p>
+    <input class='text'>
+    <button (click)='guess($event)'>guess</button>
+    <div *ngIf='answer' class='answer'>
+      <p class='answer'>{{data.answer}}</p>
+      <button (click)='close($event)'>Close</button>
+    </div>
+  </div>
+</div>
 <div 
   class='tile'
-  [ngClass]="{'tile': true, 'beingAsked': this.beingAsked}"
   (click)='ask($event)'
 >
   <h3 *ngIf='data.active && !this.beingAsked'>{{data.value}}</h3>
-  <div *ngIf='this.beingAsked'>
-    <p>eyyyy</p>
-    <input class='text'>
-    <button (click)='guess($event)'>guess</button>
-  </div>
 </div>

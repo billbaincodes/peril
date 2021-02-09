@@ -1,14 +1,15 @@
 .board {
-  border: .2rem solid black;
+  border: 1px solid orange;
   background-color: darkblue;
   width: 1000px;
   height: 500px;
   display: flex;
+  // margin: auto;
   // justify-content: space-evenly;
 }
 
 .cat-name {
-  border: .1rem solid black;
-  width: 80px;
+  border: 1px solid black;
   height: 80px;
+  text-shadow: 2px 2px black;
 }
