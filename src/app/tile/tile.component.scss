@@ -1,6 +1,6 @@
 .tile {
   width: 200px;
-  height: 83px;
+  height: 84px;
   border: 1px solid black;
   border-top: none;
   box-sizing:border-box;
@@ -23,6 +23,7 @@
   height: 0;
   width: 0;
   opacity: 0;
+  margin-top: -1px;
 }
 
 .beingAsked {

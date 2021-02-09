@@ -16,7 +16,7 @@ export class TileComponent implements OnInit {
 
   correct = false;
 
-  conjecture = 'hehe'
+  conjecture = ''
 
   constructor() { }
 
