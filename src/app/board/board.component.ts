@@ -13,8 +13,6 @@ export class BoardComponent implements OnInit {
   set:any = (data as any).default;
 
   ngOnInit() {
-    console.log({ data });
-    console.log(data[0])
   }
 
 }

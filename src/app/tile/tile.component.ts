@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
+import { ScoreService } from '../score.service';
 
 @Component({
   selector: 'tile',
@@ -18,24 +19,29 @@ export class TileComponent implements OnInit {
 
   conjecture = ''
 
-  constructor() { }
+  constructor(
+    private scoreService: ScoreService
+  ) { }
 
   ngOnInit() {
-    console.log('data', this.data)
   }
 
   ask(e){
-    console.log(this.data.query)
     this.beingAsked = true;
-    console.log(this.data)
-    console.log(this.beingAsked)
   }
 
   guess(e){
     e.stopPropagation(); // stop ask from firing
-    console.log(this.conjecture, this.data.answer);
-    if (this.conjecture == this.data.answer){
+    let regex = new RegExp(this.data.regex, 'mi');
+    console.log(regex, this.conjecture)
+    console.log(regex.test(this.conjecture));
+    if (regex.test(this.conjecture)){
       this.correct = true;
+      this.scoreService.updateScore(this.data.value)
+    } else {
+      console.log('oh god no')
+      this.correct = false;
+      this.scoreService.updateScore(-this.data.value)
     }
     this.answer = true;
   }

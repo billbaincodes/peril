@@ -2,9 +2,15 @@
   *ngIf='data.active'
   [ngClass]="{'tile': true, 'beingAsked': this.beingAsked, 'hidden': !this.beingAsked }">
     <p>{{data.query | uppercase}}</p>
-    <input [(ngModel)]="conjecture" class='text'>
-    <button (click)='guess($event)'>guess</button>
-    <div *ngIf='answer' class='answer'>
+    <img *ngIf='data.img' src='../../assets/{{data.img}}' />
+    <audio controls *ngIf='data.audio'>
+      <source src='../../assets/{{data.audio}}'>
+    </audio>
+    <div class='input-container '>
+      <input [(ngModel)]="conjecture" class='text'>
+      <button (click)='guess($event)'>Guess</button>
+    </div>
+    <div [style.visibility]="answer ? 'visible' : 'hidden'">
       <p class='answer'>{{data.answer}}</p>
       <p class='correct' *ngIf='correct'>Correct!</p>
       <p class='incorrect' *ngIf='!correct'>Incorrect</p>
@@ -13,5 +19,5 @@
 </div>
 
 <div class='tile' (click)='ask($event)'>
-  <h3 *ngIf='data.active && !this.beingAsked'>{{data.value}}</h3>
+  <h3 *ngIf='data.active && !this.beingAsked'>${{data.value}}</h3>
 </div>
